@@ -1,3 +1,3 @@
 (function() {
-    React.renderComponent(<TubeTracker networkData={data} />, document.body);
+    React.render(<TubeTracker networkData={data} />, document.body);
 })();

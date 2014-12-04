@@ -3,7 +3,7 @@ var TubeTracker = React.createClass({
         return (
             <div className="layout">
                 <div className="layout__sidebar">
-                    <Network />
+                    <Network networkData={this.props.networkData} />
                 </div>
                 <div className="layout__content">
                     <Predictions />
