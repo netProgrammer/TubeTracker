@@ -1,8 +1,27 @@
 var Network = React.createClass({
+    getInitialState: function () {
+        return {
+            collapsible: window.innerWidth <= 800,
+            open: false
+        };
+    },
+    handleToggle: function () {
+        this.setState({open: !this.state.open});
+    },
+    handleResize: function () {
+        this.setState({collapsible: window.innerWidth <= 800});
+    },
+    componentWillMount: function () {
+        this.debounce = utils.debounceEvent(this.handleResize, 250)
+        window.removeEventListener("resize", this.debounce, false);
+    },
+    componentWillUnmount: function () {
+        window.removeEventListener("resize", this.debounce, false);
+    },
     render: function () {
         return (
             <div className={"network "}>
-              <button type="button" className="network__toggle" ></button>
+                <button type="button" className="network__toggle" ></button>
             </div>
         );
     }
